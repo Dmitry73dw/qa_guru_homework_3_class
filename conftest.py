@@ -2,8 +2,9 @@ import pytest
 from selene import browser, be, have
 
 
-@pytest.fixture(scope="session")
-def open_brawser():
-    browser.open('https://google.com')
+@pytest.fixture(autouse=True)
+def setings_browser():
+    browser.config.window_height = 1080
+    browser.config.window_width = 1080
     yield
-    browser.close()
+    browser.quit()
