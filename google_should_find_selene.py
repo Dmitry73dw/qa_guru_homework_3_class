@@ -1,12 +1,6 @@
 import pytest
 from selene import browser, be, have
 
-@pytest.fixture(scope="session")
-def open_brawser():
-    browser.open('https://google.com')
-    yield
-    browser.close()
-
 @pytest.fixture
 def open_main_page():
     browser.element('[class="jfN4p"]').click()
